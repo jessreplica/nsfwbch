@@ -1,3 +1,85 @@
+<div style="font-family: 'Ubuntu', Arial, sans-serif; text-align: center; max-width: 500px; margin: 0.375rem auto; padding: 1rem; color: #FFFFFF; line-height: 1.25; border: 1px solid #171A2185; border-radius: 8px; background: #171A2185;">
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
+<h3 style="color: #FFFFFF; line-height: 1.25; margin: 0.375rem 0; font-weight: 700; font-size: 1.25em;">Ꞩ (sats) Calculator</h3>
+
+<form style="display: flex; flex-direction: column; gap: 0.75rem; background: #171A2185;">
+<label style="line-height: 1.25; margin: 0.375rem; font-weight: 400; color: #FFFFFF;">Weekly Pay (USD):
+<input type="number" id="weekly-pay" placeholder="Enter pay" min="0" step="0.01"
+style="width: 150px; padding: 5px; border: 1px solid #FFFFFF; color: #FFFFFF; border-radius: 4px; margin-left: 0.5rem; background: #171A2185;">
+</label>
+
+<label style="line-height: 1.25; margin: 0.375rem; font-weight: 400; color: #FFFFFF;">Annual Compound Rate (%):
+<input type="number" id="compound-rate" placeholder="Enter rate" min="0" step="0.1"
+style="width: 150px; padding: 5px; border: 1px solid #FFFFFF; color: #FFFFFF; border-radius: 4px; margin-left: 0.5rem; background: #171A2185;">
+</label>
+
+<label style="line-height: 1.25; margin: 0.375rem; font-weight: 400; color: #FFFFFF;">
+Years: <span id="year-value" style="color: #FFFFFF; font-weight: 700;">1</span>
+<input type="range" id="years" min="1" max="10" value="1" style="width: 150px; accent-color: #FFFFFF; margin-left: 0.5rem;">
+</label>
+</form>
+
+<div id="result" style="margin: 0.375rem; padding: 0.75rem; color: #FFFFFF; line-height: 1.25; background: #171A2185; border-radius: 4px; font-weight: 400; text-align: left; white-space: pre-line;">
+Enter weekly pay to calculate sats.
+</div>
+
+<script>
+let usdPerSatoshi = 0, weeklyPay = 0, compoundRate = 0, years = 1;
+
+function connectWebSocket() {
+const ws = new WebSocket('wss://stream.binance.com:9443/ws/bchusdt@trade');
+ws.onmessage = e => {
+try {
+const data = JSON.parse(e.data);
+if (data.p && !isNaN(parseFloat(data.p))) {
+usdPerSatoshi = parseFloat(data.p) / 100000000;
+updateResult();
+}
+} catch (err) {
+document.getElementById('result').innerText = 'Price error';
+}
+};
+ws.onerror = () => document.getElementById('result').innerText = 'Price unavailable';
+ws.onclose = () => setTimeout(connectWebSocket, 5000);
+}
+
+function updateResult() {
+if (usdPerSatoshi === 0 || weeklyPay <= 0 || isNaN(weeklyPay)) {
+document.getElementById('result').innerText = usdPerSatoshi ? 'Enter valid pay' : 'Waiting for price...';
+return;
+}
+const weeklySats = weeklyPay / usdPerSatoshi;
+const yearlySats = weeklySats * 52;
+const totalSats = yearlySats * years;
+const compoundedSats = compoundRate > 0 ? yearlySats * Math.pow(1 + compoundRate / 100, years) : totalSats;
+
+document.getElementById('result').innerText =
+`Weekly: ${Math.floor(weeklySats).toLocaleString()} sats\n` +
+`Yearly: ${Math.floor(yearlySats).toLocaleString()} sats\n` +
+`Total (${years} year${years > 1 ? 's' : ''}): ${Math.floor(totalSats).toLocaleString()} sats` +
+(compoundRate > 0 ? `\nCompounded (${compoundRate}%): ${Math.floor(compoundedSats).toLocaleString()} sats` : '');
+}
+
+document.getElementById('weekly-pay').addEventListener('input', () => {
+weeklyPay = parseFloat(document.getElementById('weekly-pay').value) || 0;
+updateResult();
+});
+
+document.getElementById('compound-rate').addEventListener('input', () => {
+compoundRate = parseFloat(document.getElementById('compound-rate').value) || 0;
+updateResult();
+});
+
+document.getElementById('years').addEventListener('input', () => {
+years = parseInt(document.getElementById('years').value);
+document.getElementById('year-value').innerText = years;
+updateResult();
+});
+
+connectWebSocket();
+</script>
+</div>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
