@@ -33,11 +33,13 @@
     transform: scale(1.05);
   }
 
-  /* Container for the calculator, hidden by default */
+    /* Updated calculator container style for floating position */
   #calculatorContainer {
     display: none;
+    position: fixed;
+    top: 50px;
+    right: 20px;
     max-width: 500px;
-    margin: 50px auto;
     padding: 1rem;
     border: 1px solid #171A2185;
     border-radius: 8px;
@@ -45,7 +47,7 @@
     font-family: 'Ubuntu', Arial, sans-serif;
     line-height: 1.25;
     color: #fff;
-    position: relative;
+    z-index: 1000;
   }
 
   /* Styles inside the calculator */
