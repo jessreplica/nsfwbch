@@ -58,25 +58,24 @@
     transform: scale(1.05);
   }
 
-  /* Calculator panel */
   #calculatorContainer {
-    position: fixed;
-    bottom: 70px; /* above the toggle button */
-    right: 20px;
-    width: 220px;
-    background: rgba(23, 26, 33, 0.9);
-    border-radius: 12px;
-    padding: 12px;
-    display: none;
-    flex-direction: column;
-    align-items: stretch;
-    font-family: 'Ubuntu', Arial, sans-serif;
-    font-size: 0.85em;
-    color: #fff;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    backdrop-filter: blur(4px);
-  }
-
+  position: fixed;
+  bottom: 70px;
+  right: 20px;
+  width: 220px;
+  background: rgba(23, 26, 33, 0.9);
+  border-radius: 12px;
+  padding: 12px;
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  font-family: 'Ubuntu', Arial, sans-serif;
+  font-size: 0.85em;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  backdrop-filter: blur(4px);
+  z-index: 1000; /* ensure it stays on top */
+}
   /* Labels & inputs styling for aesthetic compactness */
   #calculatorContainer label {
     display: flex;
