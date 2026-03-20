@@ -5,147 +5,116 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Bitcoin Cash Gallery</title>
 <style>
-/* Reset and base styles */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-/* Body to center everything initially with scaling */
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background-color: #fff;
-  font-family: "Motiva Sans", Arial, sans-serif;
-  transition: all 0.5s ease;
-}
-
-/* Container holding all content initially */
-#container {
-  width: 90vmin;
-  max-width: 1200px;
-  padding: 4vmin;
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Center all inside */
-  transition: all 0.5s ease;
-}
-
-/* The symbol - animated and large */
-#symbol {
-  font-size: 150px;
-  color: #0AC18E;
-  font-family: Arial, sans-serif;
-  animation: pulse 2s infinite ease-in-out;
-  cursor: pointer;
-  margin-bottom: 20px;
-  transition: transform 0.3s;
-}
-
-/* Pulsing animation */
-@keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 1;
+  /* Reset and basic styles */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
   }
-  50% {
-    transform: scale(1.2);
-    opacity: 0.8;
+
+  /* Body centers everything initially */
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #fff;
+    font-family: "Motiva Sans", Arial, sans-serif;
+    transition: all 0.5s ease;
   }
-}
 
-/* Search input styling */
-#search {
-  width: 100%;
-  max-width: 420px;
-  padding: 1.4vmin 2.4vmin;
-  border: none;
-  border-radius: 30px;
-  font-size: clamp(15px, 2.8vmin, 18px);
-  background: #fff;
-  box-shadow: inset 0 2px 6px rgba(0,0,0,0.5);
-  margin-bottom: 20px;
-  transition: all 0.3s ease;
-}
-#search:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px #4487F1, inset 0 2px 6px rgba(0,0,0,0.5);
-}
+  /* Container for all content */
+  #container {
+    width: 90vmin;
+    max-width: 1200px;
+    padding: 4vmin;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* center all inside */
+  }
 
-/* Gallery grid */
-#gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 20px;
-  width: 100%;
-  max-width: 1000px;
-  transition: all 0.5s ease;
-}
+  /* Static symbol, no animation, just a click to refresh */
+  #symbol {
+    font-size: 150px; /* large size */
+    color: #0AC18E; /* green */
+    font-family: Arial, sans-serif;
+    margin-bottom: 20px;
+    cursor: pointer; /* indicate clickable */
+  }
 
-/* Figures styling */
-figure {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  transition: transform 0.3s;
-}
-figure img {
-  max-width: 160px;
-  width: 100%;
-  border-radius: 12px;
-  background: #f8fdff;
-  padding: 4px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
-  transition: all 0.3s;
-}
-figure img:hover {
-  transform: scale(1.03);
-}
-figcaption {
-  margin-top: 8px;
-  font-size: 13px;
-  color: #606060;
-  text-align: center;
-}
+  /* Centered search bar */
+  #search {
+    width: 100%;
+    max-width: 420px;
+    padding: 1.4vmin 2.4vmin;
+    border: none;
+    border-radius: 30px;
+    font-size: clamp(15px, 2.8vmin, 18px);
+    background: #fff;
+    box-shadow: inset 0 2px 6px rgba(0,0,0,0.5);
+    margin-bottom: 20px;
+  }
 
-/* Responsive adjustments */
-@media(max-width: 900px) {
+  #search:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px #4487F1, inset 0 2px 6px rgba(0,0,0,0.5);
+  }
+
+  /* Gallery layout: max 4 columns, responsive */
   #gallery {
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    display: grid;
+    grid-template-columns: repeat(4, minmax(160px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1000px;
   }
-}
 
-/* When iframe is active, scale everything out and hide content */
-#container.scaled {
-  transform: scale(0.8);
-  opacity: 0.5;
-}
-#full-iframe {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-  display: none; /* hidden initially */
-  z-index: 9999;
-  background: #fff;
-  transition: opacity 0.3s;
-}
-#full-iframe.show {
-  display: block;
-  opacity: 1;
-}
+  /* Figures styling */
+  figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s;
+  }
+
+  figure img {
+    max-width: 160px;
+    width: 100%;
+    border-radius: 12px;
+    background: #f8fdff;
+    padding: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+    transition: all 0.3s;
+  }
+
+  figure img:hover {
+    transform: scale(1.03);
+  }
+
+  figcaption {
+    margin-top: 8px;
+    font-size: 13px;
+    color: #606060;
+    text-align: center;
+  }
+
+  /* Responsive adjustments for smaller screens */
+  @media(max-width: 900px) {
+    #gallery {
+      grid-template-columns: repeat(3, minmax(160px, 1fr));
+    }
+  }
+  @media(max-width: 600px) {
+    #gallery {
+      grid-template-columns: repeat(2, minmax(160px, 1fr));
+    }
+  }
 </style>
 </head>
 <body>
-
 <div id="container">
-  <!-- The large animated symbol -->
-  <div id="symbol" onclick="showIframe()">ﾑ</div>
+  <!-- The static symbol, clicking reloads the page -->
+  <div id="symbol" onclick="location.reload()">ﾑ</div>
 
 <div class="bch-gallery">
   <input type="text" id="searchInput" placeholder="Discover Bitcoin Cash..." oninput="filterGallery()" />
