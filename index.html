@@ -106,6 +106,178 @@
 <body>
 <div id="container">
   <div id="symbol" onclick="location.reload()">ﾑ</div>
+
+  <!-- Search input -->
+  <div class="search-wrapper">
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="Discover Bitcoin Cash..."
+      oninput="filterGallery()"
+    />
+  </div>
+
+  <!-- Responsive grid -->
+  <div id="gallery">
+    <!-- Example figure -->
+    <figure>
+      <a href="https://t.me/addstickers/bchhoroscopepack1" target="_blank" rel="noopener noreferrer">
+        <img src="https://raw.githubusercontent.com/thecyphercat/bchagora/refs/heads/main/bch%20agora/bitcoincash.svg" loading="lazy" alt="BCH Horoscope Sticker Pack" />
+      </a>
+      <figcaption>BCH Horoscope Sticker Pack</figcaption>
+    </figure>
+    <!-- Add more figures as needed -->
+    <!-- Example: -->
+    <figure>
+      <a href="https://bmap.app/" target="_blank" rel="noopener noreferrer">
+        <img src="https://raw.githubusercontent.com/thecyphercat/bchagora/refs/heads/main/bch%20agora/bmap.png" loading="lazy" alt="BMap | Merchant Map" />
+      </a>
+      <figcaption>BMap | Merchant Map</figcaption>
+    </figure>
+    <!-- You can add more figures here -->
+  </div>
+</div>
+<script>
+function filterGallery() {
+  const term = document.getElementById("searchInput").value.toLowerCase().trim();
+  const figures = document.querySelectorAll("#gallery figure");
+  figures.forEach(figure => {
+    const caption = figure.querySelector("figcaption")?.textContent.toLowerCase() || "";
+    figure.style.display = (term === "" || caption.includes(term)) ? "" : "none";
+  });
+}
+</script>
+</body>
+</html>
+Summary:
+2 columns on screens narrower than 900px, and 4 columns on wider screens.
+All images are fixed at 150px width for a uniform appearance.
+The grid and search bar are centered and aligned.
+The layout scales smoothly with the viewport size.
+Feel free to add your images! This setup will give you a neat, responsive, and uniformly scaled gallery.
+
+Copy
+Summarize
+Delete
+
+app.adjust.com
+Sponsored
+Snap, Match, Share Your Celebrity Twin – Celebs lets you take unlimited pictures, find your celebrity lookalike with fast matching, and share the results on Instagram and Snapchat—all for free.
+Learn more
+I need everything to be the same size as eachother
+Regenerate
+Delete
+Understood! To ensure all images are exactly the same size and columns scale responsively with consistent sizing across all elements, here's what we'll do:
+
+Fix the size of all images (e.g., width: 150px).
+Use CSS Flexbox or Grid to create a responsive layout that adjusts the number of columns based on screen size.
+Keep the overall container and search bar aligned and centered.
+Here's a full working example with these requirements:
+
+CopyRun
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bitcoin Cash Gallery</title>
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #fff;
+    font-family: "Motiva Sans", Arial, sans-serif;
+  }
+
+  #container {
+    width: 90vmin;
+    max-width: 1200px;
+    padding: 4vmin;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #symbol {
+    font-size: 150px;
+    color: #0AC18E;
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+
+  /* Container for search, same max width as grid for alignment */
+  .search-wrapper {
+    max-width: 1000px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  #search {
+    width: 100%;
+    max-width: 420px;
+    padding: 1.4vmin 2.4vmin;
+    border: none;
+    border-radius: 30px;
+    font-size: clamp(15px, 2.8vmin, 18px);
+    background: #fff;
+    box-shadow: inset 0 2px 6px rgba(0,0,0,0.5);
+  }
+
+  #search:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px #4487F1, inset 0 2px 6px rgba(0,0,0,0.5);
+  }
+
+  /* Responsive grid: 2 columns on small screens, 4 on large */
+  #gallery {
+    display: grid;
+    gap: 20px;
+    width: 100%;
+    max-width: 1000px;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+
+  /* All figures and images fixed size for uniformity */
+  figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  figure img {
+    width: 150px; /* fixed size for all images */
+    height: auto;
+    border-radius: 12px;
+    background: #f8fdff;
+    padding: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+  }
+
+  figure img:hover {
+    transform: none; /* no zoom or resize on hover */
+  }
+
+  figcaption {
+    margin-top: 8px;
+    font-size: 13px;
+    color: #606060;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<div id="container">
+  <div id="symbol" onclick="location.reload()">ﾑ</div>
   <!-- Search field -->
   <div class="search-wrapper">
     <input
