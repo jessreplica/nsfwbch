@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>NSFW BCH ﾑ</title>
+<title>Bitcoin Cash Gallery</title>
 <style>
   * {
     box-sizing: border-box;
@@ -38,7 +38,7 @@
 
   /* Search container, same max width for alignment */
   .search-wrapper {
-    max-width: 1000px; /* same as grid */
+    max-width: 1000px; /* match grid max width */
     width: 100%;
     display: flex;
     justify-content: center;
@@ -47,7 +47,7 @@
 
   #search {
     width: 100%;
-    max-width: 420px; 
+    max-width: 420px;
     padding: 1.4vmin 2.4vmin;
     border: none;
     border-radius: 30px;
@@ -60,32 +60,41 @@
     box-shadow: 0 0 0 3px #4487F1, inset 0 2px 6px rgba(0,0,0,0.5);
   }
 
-  /* Responsive grid with flexible column sizes */
+  /* Grid: 4 columns on large screens, 2 columns on small screens */
   #gallery {
     display: grid;
     gap: 20px;
     width: 100%;
-    max-width: 1000px; /* same as search container */
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    max-width: 1000px; /* same as search wrapper for alignment */
+    grid-template-columns: repeat(4, minmax(150px, 1fr));
   }
 
-  /* Figures with fixed internal image size */
+  @media(max-width: 900px) {
+    #gallery {
+      grid-template-columns: repeat(2, minmax(150px, 1fr));
+    }
+  }
+
+  /* All figures and images fixed size for uniformity */
   figure {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
+
   figure img {
-    width: 150px; /* fixed size for images */
+    width: 150px; /* fixed size for all images */
     height: auto;
     border-radius: 12px;
     background: #f8fdff;
     padding: 4px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.15);
   }
+
   figure img:hover {
     transform: none;
   }
+
   figcaption {
     margin-top: 8px;
     font-size: 13px;
