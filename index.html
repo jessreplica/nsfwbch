@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>NSFW BCH ﾑ</title>
+<title>Bitcoin Cash Gallery</title>
 <style>
   * {
     box-sizing: border-box;
@@ -32,24 +32,22 @@
   #symbol {
     font-size: 150px;
     color: #0AC18E;
-    font-family: Arial, sans-serif;
     margin-bottom: 20px;
     cursor: pointer;
   }
 
-  /* Wrap search input in a max-width container, same as grid max width for alignment */
+  /* Search container, same max width for alignment */
   .search-wrapper {
-    max-width: 1000px; /* same as grid max width */
+    max-width: 1000px; /* same as grid */
     width: 100%;
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
   }
 
-  /* Search input fixed size and centered */
   #search {
     width: 100%;
-    max-width: 420px;
+    max-width: 420px; 
     padding: 1.4vmin 2.4vmin;
     border: none;
     border-radius: 30px;
@@ -62,29 +60,23 @@
     box-shadow: 0 0 0 3px #4487F1, inset 0 2px 6px rgba(0,0,0,0.5);
   }
 
-  /* The grid same max width, centered, responsive columns */
+  /* Responsive grid with flexible column sizes */
   #gallery {
     display: grid;
-    grid-template-columns: repeat(4, minmax(160px, 1fr));
     gap: 20px;
     width: 100%;
-    max-width: 1000px; /* same as search wrapper for perfect alignment */
-  }
-  @media(max-width: 900px) {
-    #gallery {
-      grid-template-columns: repeat(2, minmax(160px, 1fr));
-    }
+    max-width: 1000px; /* same as search container */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   }
 
-  /* Figures are fixed size, images fixed width */
+  /* Figures with fixed internal image size */
   figure {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 160px; /* consistent size for all figures */
   }
   figure img {
-    width: 160px; /* fixed size images */
+    width: 150px; /* fixed size for images */
     height: auto;
     border-radius: 12px;
     background: #f8fdff;
@@ -104,17 +96,19 @@
 </head>
 <body>
 <div id="container">
-  <!-- The static symbol, clicking reloads the page -->
   <div id="symbol" onclick="location.reload()">ﾑ</div>
-
-<div class="bch-gallery">
-  <input type="text" id="searchInput" placeholder="Discover Bitcoin Cash..." oninput="filterGallery()" />
-
-  <!-- Grid container for all figures -->
-  <div class="grid" id="galleryGrid">
-    <!-- Figures start here -->
-
-    <!-- Unsorted Items -->
+  <!-- Search field -->
+  <div class="search-wrapper">
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="Discover Bitcoin Cash..."
+      oninput="filterGallery()"
+    />
+  </div>
+  <!-- Responsive flexible columns -->
+  <div id="gallery">
+    <!-- Example figure -->
     <figure>
       <a href="https://t.me/addstickers/bchhoroscopepack1" target="_blank" rel="noopener noreferrer">
         <img src="https://raw.githubusercontent.com/thecyphercat/bchagora/refs/heads/main/bch%20agora/bitcoincash.svg" loading="lazy" alt="BCH Horoscope Sticker Pack" />
@@ -806,25 +800,18 @@
       <figcaption>BCH PUMP | Smart Contract</figcaption>
     </figure>
 
+    <!-- Add more figures here -->
   </div>
 </div>
-
 <script>
 function filterGallery() {
   const term = document.getElementById("searchInput").value.toLowerCase().trim();
-  const figures = document.querySelectorAll("#galleryGrid figure");
+  const figures = document.querySelectorAll("#gallery figure");
   figures.forEach(figure => {
     const caption = figure.querySelector("figcaption")?.textContent.toLowerCase() || "";
-    if (term === "" || caption.includes(term)) {
-      figure.style.display = "";
-      figure.classList.add("match");
-    } else {
-      figure.style.display = "none";
-      figure.classList.remove("match");
-    }
+    figure.style.display = (term === "" || caption.includes(term)) ? "" : "none";
   });
 }
 </script>
-
 </body>
 </html>
