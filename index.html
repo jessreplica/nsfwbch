@@ -37,19 +37,19 @@
     cursor: pointer;
   }
 
-  /* Container for search input, fixed max width to match grid */
-  .search-container {
+  /* Wrap search input in a max-width container, same as grid max width for alignment */
+  .search-wrapper {
     max-width: 1000px; /* same as grid max width */
     width: 100%;
     display: flex;
-    justify-content: center; /* center horizontally */
+    justify-content: center;
     margin-bottom: 20px;
   }
 
-  /* Search input fixed size */
+  /* Search input fixed size and centered */
   #search {
     width: 100%;
-    max-width: 420px; /* same as before */
+    max-width: 420px;
     padding: 1.4vmin 2.4vmin;
     border: none;
     border-radius: 30px;
@@ -62,13 +62,13 @@
     box-shadow: 0 0 0 3px #4487F1, inset 0 2px 6px rgba(0,0,0,0.5);
   }
 
-  /* Grid with same max width as search container */
+  /* The grid same max width, centered, responsive columns */
   #gallery {
     display: grid;
     grid-template-columns: repeat(4, minmax(160px, 1fr));
     gap: 20px;
     width: 100%;
-    max-width: 1000px; /* same as search container */
+    max-width: 1000px; /* same as search wrapper for perfect alignment */
   }
   @media(max-width: 900px) {
     #gallery {
@@ -76,14 +76,15 @@
     }
   }
 
+  /* Figures are fixed size, images fixed width */
   figure {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 160px;
+    width: 160px; /* consistent size for all figures */
   }
   figure img {
-    width: 160px;
+    width: 160px; /* fixed size images */
     height: auto;
     border-radius: 12px;
     background: #f8fdff;
