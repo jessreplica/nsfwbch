@@ -5,179 +5,147 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>NSFW BCH ﾑ</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
 
-  /* Reset style */
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-  body {
-    background-color: #f0f4f8;
-    font-family: 'Orbitron', Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
-    padding-top: 0;
-    color: #222;
-  }
+body {
+  font-family: 'Orbitron', Arial, sans-serif;
+  background: #f0f4f8;
+  display: flex; flex-direction: column; align-items: center;
+  min-height: 100vh; padding-top: 0; color: #222;
+}
 
-  /* Support banner styles with dual tones */
-  #support-banner {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    max-width: 900px;
-    background: linear-gradient(135deg, #e0f2f1, #f0f4f8);
-    border-bottom: 2px solid #ccc;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    padding: 20px 20px 10px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    z-index: 9999;
-  }
-  #support-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  #support-header h2 {
-    font-size: 1.4em;
-    color: #2c7a7b;
-    margin: 0;
-  }
-  #toggleSupportBtn {
-    background: #006666;
-    border: none;
-    border-radius: 10px;
-    padding: 6px 12px;
-    font-family: 'Orbitron', Arial, sans-serif;
-    font-size: 14px;
-    color: #fff;
-    cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.5);
-    transition: background 0.2s;
-  }
-  #toggleSupportBtn:hover {
-    background: #004d4d;
-  }
-  #support-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease, padding 0.3s;
-    margin-top: 10px;
-  }
-  #support-content.expanded {
-    max-height: 1000px;
-    padding: 10px 0;
-  }
-  .segment {
-    padding: 10px;
-    margin-top: 10px;
-    border-radius: 8px;
-  }
-  .segment:nth-child(1) { background-color: #d1fae5; }
-  .segment:nth-child(2) { background-color: #fde68a; }
-  .support-link {
-    display: block;
-    margin-top: 10px;
-    padding: 10px;
-    background: #68d391;
-    color: #fff;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  .support-link:hover {
-    background: #48bb78;
-  }
+/* Support banner styles */
+#support-banner {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  max-width: 900px;
+  background: linear-gradient(135deg, #e0f2f1, #f0f4f8);
+  border-bottom: 2px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  padding: 20px 20px 10px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  z-index: 9999;
+}
+#support-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#support-header h2 {
+  font-size: 1.4em;
+  color: #2c7a7b;
+  margin: 0;
+}
+#toggleSupportBtn {
+  background: #006666;
+  border: none;
+  border-radius: 10px;
+  padding: 6px 12px;
+  font-family: 'Orbitron', Arial, sans-serif;
+  font-size: 14px;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  transition: background 0.2s;
+}
+#toggleSupportBtn:hover {
+  background: #004d4d;
+}
+#support-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s;
+  margin-top: 10px;
+}
+#support-content.expanded {
+  max-height: 1000px;
+  padding: 10px 0;
+}
+.segment {
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+.segment:nth-child(1) { background-color: #d1fae5; }
+.segment:nth-child(2) { background-color: #fde68a; }
+.support-link {
+  display: block;
+  margin-top: 10px;
+  padding: 10px;
+  background: #68d391;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+}
+.support-link:hover {
+  background: #48bb78;
+}
 
-  /* Page title styling */
-  #title {
-    font-size: 2.5em;
-    color: #006666;
-    margin-top: 100px; /* space below fixed banner */
-    margin-bottom: 10px;
-    letter-spacing: 2px;
-    text-align: center;
-  }
+#title {
+  font-size: 2.5em;
+  color: #006666;
+  margin-top: 150px;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+  text-align: center;
+}
 
-  /* Buttons styling */
-  #buttons-container {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 15px;
-  }
-  button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 8px;
-    font-family: 'Orbitron', Arial, sans-serif;
-    font-size: 1em;
-    cursor: pointer;
-    background-color: #008080;
-    color: #fff;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    transition: background 0.2s, transform 0.2s;
-  }
-  button:hover {
-    background-color: #006666;
-    transform: scale(1.05);
-  }
+#buttons-container {
+  display: flex; gap: 10px; margin-bottom: 15px;
+}
+button {
+  padding: 10px 20px; border: none; border-radius: 8px;
+  background-color: #008080; color: #fff; font-family: 'Orbitron', sans-serif;
+  cursor: pointer; transition: background 0.2s, transform 0.2s;
+}
+button:hover { background-color: #006666; transform: scale(1.05); }
 
-  /* Figures grid layout */
-  #app-section {
-    width: 100%;
-    max-width: 1200px;
-    margin-top: 10px;
-    display: flex;
-    justify-content: center;
-  }
-  .app-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-    gap: 8px;
-    width: 100%;
-  }
-  figure {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 8px;
-  }
-  figure img {
-    width: 50px; /* smaller, neat size */
-    height: auto;
-    border-radius: 12px;
-    background: #f8fdff;
-    padding: 4px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
-  }
-  figcaption {
-    margin-top: 8px;
-    font-size: 13px;
-    color: #606060;
-    text-align: center;
-  }
+#app-section {
+  width: 100%; max-width: 1200px; margin-top: 10px; display: flex; justify-content: center;
+}
+.app-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); gap: 8px; width: 100%;
+}
+figure {
+  display: flex; flex-direction: column; align-items: center; margin: 8px;
+}
+figure img {
+  width: 50px; border-radius: 12px; background: #f8fdff; padding: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+}
+figcaption {
+  margin-top: 8px; font-size: 13px; color: #606060; text-align: center;
+}
 
-  /* iframe container fixed size and hidden initially */
-  #videoFullscreen {
-    width: 100%;
-    max-width: 1080px;
-    aspect-ratio: 16/9;
-    display: none;
-    margin-top: 5px;
-  }
-  #videoFullscreen iframe {
-    width: 100%;
-    height: 100%;
-    border-radius: 8px;
-    border: none;
-  }
+/* Fullscreen overlay styles */
+#fullscreenOverlay {
+  display: none; /* hidden by default */
+  position: fixed; top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: #fff; /* white background behind back button & iframe */
+  z-index: 9999; display: flex; flex-direction: column;
+}
+#fullscreenHeader {
+  padding: 10px;
+  background: #fff; /* white background for header */
+}
+#closeBtn {
+  padding: 8px 12px;
+  background: #fff; /* same as banner background */
+  color: #000; /* black text for contrast */
+  border: 1px solid #ccc; /* optional border for clarity */
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Orbitron', sans-serif;
+}
+#fullscreenIframe {
+  flex: 1; width: 100%; border: none;
+}
 </style>
 </head>
 <body>
@@ -209,16 +177,8 @@
     </div>
     <div class="segment">
       <h3>Support our collective (optional):</h3>
-      <a href="#" class="support-link">
-        Ꞩ150k 💚🌿<br>
-        BCH BOOTIES - Token ID<br>
-        791d3047a42ec2d15f02edfa78ce41cc4c7933b65cfa9391599b8c8714e82d02
-      </a>
-      <a href="#" class="support-link">
-        Ꞩ150k 💚🌿<br>
-        AGORA - Token ID<br>
-        8c7a98dcd56bd006693cff17d14fb0132dd9299dabf068e44dde51b477c7f27b
-      </a>
+      <a href="#" class="support-link">Ꞩ150k 💚🌿<br> BCH BOOTIES - Token ID<br> 791d3047a42ec2d15f02edfa78ce41cc4c7933b65cfa9391599b8c8714e82d02</a>
+      <a href="#" class="support-link">Ꞩ150k 💚🌿<br> AGORA - Token ID<br> 8c7a98dcd56bd006693cff17d14fb0132dd9299dabf068e44dde51b477c7f27b</a>
       <p style="font-size:0.9em; margin-top:10px;">*Note: This project is still being built, so some details might change.*</p>
     </div>
   </div>
@@ -227,15 +187,19 @@
 <h1 id="title">NSFW BCH ﾑ</h1>
 
 <div id="buttons-container">
-  <button id="discoverBtn">Discover</button>
+  <!-- Removed "Discover" button -->
   <button id="watchBtn">Watch Free</button>
 </div>
 
-<!-- Fixed iframe container -->
-<div id="videoFullscreen" style="width: 100%; max-width: 900px; aspect-ratio: 16/9; display: none; margin-top: 20px;">
-  <iframe src="https://gaze.cash/channel.html?chan=AAAAZw" allowfullscreen style="width: 100%; height: 100%; border-radius: 8px; border: none;"></iframe>
+<!-- Fullscreen overlay with white background and back button -->
+<div id="fullscreenOverlay" style="display:none; flex-direction:column;">
+  <div style="padding:10px; background:#fff;">
+    <button id="closeBtn">Back</button>
+  </div>
+  <iframe src="https://gaze.cash/channel.html?chan=AAAAZw" allowfullscreen id="fullscreenIframe"></iframe>
 </div>
 
+<!-- All figures from start to BCH PUMP -->
 <!-- Figures grid with all your provided figures, captions beneath each -->
 <div id="app-section">
   <div id="iconsContainer" style="width:100%; padding:10px;">
@@ -910,23 +874,42 @@
         <figcaption>BCH PUMP | Smart Contract</figcaption>
       </figure>
 
+
     </div>
   </div>
 </div>
 
 <script>
+  // Toggle support
   document.getElementById('toggleSupportBtn').onclick = () => {
     const supportContent = document.querySelector('#support-content');
     supportContent.classList.toggle('expanded');
     document.getElementById('toggleSupportBtn').textContent = supportContent.classList.contains('expanded') ? 'Read Less' : 'Read More';
   };
 
-  document.getElementById('discoverBtn').onclick = () => {
-    document.getElementById('videoFullscreen').style.display='none';
-  };
+  // Show fullscreen iframe on button click
   document.getElementById('watchBtn').onclick = () => {
-    document.getElementById('videoFullscreen').style.display='block';
+    document.getElementById('fullscreenOverlay').style.display='flex';
   };
+
+  // Hide fullscreen iframe on back
+  document.getElementById('closeBtn').onclick = () => {
+    document.getElementById('fullscreenOverlay').style.display='none';
+  };
+
+  // Clicking outside iframe closes overlay
+  document.getElementById('fullscreenOverlay').onclick = (e) => {
+    if (e.target === document.getElementById('fullscreenOverlay')) {
+      document.getElementById('fullscreenOverlay').style.display='none';
+    }
+  };
+
+  // Escape key closes overlay
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      document.getElementById('fullscreenOverlay').style.display='none';
+    }
+  });
 </script>
 </body>
 </html>
