@@ -61,25 +61,19 @@ body {
   overflow: hidden;
   transition: max-height 0.4s ease, padding 0.3s;
   margin-top: 10px;
-}
-#support-content.expanded {
-  max-height: 1000px;
-  padding: 10px 0;
-}
-/* Make support content layout flexible and evenly spaced */
-#support-content {
   display: flex;
   flex-direction: column;
-  gap: 10px; /* even spacing between segments */
+  gap: 10px; /* evenly spaced segments */
 }
 .segment {
   padding: 10px;
   border-radius: 8px;
 }
-
-/* Replace bottom segments colors with the first green color */
-.segment:nth-child(2) { background-color: #d1fae5; }
-.segment:nth-child(3) { background-color: #d1fae5; }
+/* Set only the bottom two segments to the first green color */
+.segment:nth-child(2),
+.segment:nth-child(3) {
+  background-color: #d1fae5;
+}
 
 .support-link {
   display: block;
