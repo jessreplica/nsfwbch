@@ -66,13 +66,21 @@ body {
   max-height: 1000px;
   padding: 10px 0;
 }
+/* Make support content layout flexible and evenly spaced */
+#support-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* even spacing between segments */
+}
 .segment {
   padding: 10px;
-  margin-top: 10px;
   border-radius: 8px;
 }
-.segment:nth-child(1) { background-color: #d1fae5; }
-.segment:nth-child(2) { background-color: #fde68a; }
+
+/* Replace bottom segments colors with the first green color */
+.segment:nth-child(2) { background-color: #d1fae5; }
+.segment:nth-child(3) { background-color: #d1fae5; }
+
 .support-link {
   display: block;
   margin-top: 10px;
