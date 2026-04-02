@@ -3,156 +3,244 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>NSFW BCH ﾑ</title>
+<title>Bitcoin Cash Support Banner</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet" />
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Orbitron', Arial, sans-serif;
+    background: #f0f4f8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding-top: 0;
+    color: #222;
+  }
 
-body {
-  font-family: 'Orbitron', Arial, sans-serif;
-  background: #f0f4f8;
-  display: flex; flex-direction: column; align-items: center;
-  min-height: 100vh; padding-top: 0; color: #222;
-}
+  /* Support banner styles with BCH green theme */
+  #support-banner {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    max-width: 900px;
+    background: linear-gradient(135deg, #0AC18E, #2c3e50);
+    border-bottom: 2px solid #089d75;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    padding: 20px;
+    margin: 10px;
+    border-radius: 15px;
+    color: #fff;
+    z-index: 9999;
+    transition: all 0.3s ease;
+  }
 
-/* Support banner styles */
-#support-banner {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  max-width: 900px;
-  background: linear-gradient(135deg, #e0f2f1, #f0f4f8);
-  border-bottom: 2px solid #ccc;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-  padding: 20px 20px 10px 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  z-index: 9999;
-}
-#support-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-#support-header h2 {
-  font-size: 1.4em;
-  color: #2c7a7b;
-  margin: 0;
-}
-#toggleSupportBtn {
-  background: #006666;
-  border: none;
-  border-radius: 10px;
-  padding: 6px 12px;
-  font-family: 'Orbitron', Arial, sans-serif;
-  font-size: 14px;
-  color: #fff;
-  cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.5);
-  transition: background 0.2s;
-}
-#toggleSupportBtn:hover {
-  background: #004d4d;
-}
-#support-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease, padding 0.3s;
-  margin-top: 10px;
-}
-#support-content.expanded {
-  max-height: 1000px;
-  padding: 10px 0;
-}
-/* Make support content layout flexible and evenly spaced */
-#support-content {
-  display: flex;
-  flex-direction: column;
-  gap: 10px; /* even spacing between segments */
-}
-.segment {
-  padding: 10px;
-  border-radius: 8px;
-}
+  /* Header and toggle button styles */
+  #support-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
 
-/* Replace bottom segments colors with the first green color */
-.segment:nth-child(2) { background-color: #d1fae5; }
-.segment:nth-child(3) { background-color: #d1fae5; }
+  #support-header h2 {
+    font-size: 1.6em;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
 
-.support-link {
+  #toggleSupportBtn {
+    background: #fff;
+    color: #0AC18E;
+    border: none;
+    border-radius: 12px;
+    padding: 8px 16px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    transition: background 0.3s, transform 0.2s;
+  }
+
+  #toggleSupportBtn:hover {
+    background: #ecf0f1;
+    transform: scale(1.05);
+  }
+
+  /* Support content styles */
+  #support-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, padding 0.3s;
+    padding: 0 10px;
+  }
+
+  #support-content.expanded {
+    max-height: 1000px; /* enough to show all content */
+    padding: 10px 10px;
+  }
+
+  /* Content segments with dual-tone background */
+  .segment {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 15px;
+    margin-top: 10px;
+    backdrop-filter: blur(5px);
+    transition: background 0.3s;
+  }
+
+  /* Alternating segment background for visual interest */
+  .segment:nth-child(2) {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  /* Support buttons to copy token IDs with BCH green theme */
+.support-button {
   display: block;
+  width: 100%;
   margin-top: 10px;
-  padding: 10px;
-  background: #d1fae5;
-  color: #000000;
-  border-radius: 6px;
-  text-decoration: none;
+  padding: 12px;
+  background: linear-gradient(135deg, #0AC18E, #16a085);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
   font-weight: bold;
-}
-.support-link:hover {
-  background: #697d73;
+  cursor: pointer;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 14px;
+  transition: background 0.3s, transform 0.2s;
+  text-align: center;
 }
 
+.support-button:hover {
+  background: linear-gradient(135deg, #089d75, #138d75);
+  transform: translateY(-2px);
+}
+
+/* Title styling */
 #title {
-  font-size: 2.5em;
-  color: #006666;
-  margin-top: 150px;
-  margin-bottom: 10px;
+  font-size: 2.8em;
+  color: #0AC18E;
+  margin-top: 170px; /* space below the banner */
+  margin-bottom: 20px;
   letter-spacing: 2px;
   text-align: center;
 }
 
+/* Buttons container for any other buttons */
 #buttons-container {
-  display: flex; gap: 10px; margin-bottom: 15px;
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
 }
+
+/* Standard buttons styling, if needed elsewhere */
 button {
-  padding: 10px 20px; border: none; border-radius: 8px;
-  background-color: #008080; color: #fff; font-family: 'Orbitron', sans-serif;
-  cursor: pointer; transition: background 0.2s, transform 0.2s;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #0AC18E, #2ecc71);
+  color: #fff;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: background 0.3s, transform 0.2s;
 }
-button:hover { background-color: #006666; transform: scale(1.05); }
 
+button:hover {
+  background: linear-gradient(135deg, #089d75, #27ae60);
+  transform: scale(1.05);
+}
+
+/* App section styling (if needed) */
 #app-section {
-  width: 100%; max-width: 1200px; margin-top: 10px; display: flex; justify-content: center;
-}
-.app-grid {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); gap: 8px; width: 100%;
-}
-figure {
-  display: flex; flex-direction: column; align-items: center; margin: 8px;
-}
-figure img {
-  width: 50px; border-radius: 12px; background: #f8fdff; padding: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.15);
-}
-figcaption {
-  margin-top: 8px; font-size: 13px; color: #606060; text-align: center;
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
 }
 
-/* Fullscreen overlay styles */
+/* Example grid for app icons */
+.app-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 10px;
+  width: 100%;
+}
+
+figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 8px;
+}
+
+figure img {
+  width: 50px;
+  border-radius: 12px;
+  background: #ecf0f1;
+  padding: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+  transition: transform 0.2s;
+}
+
+figure img:hover {
+  transform: scale(1.1);
+}
+
+figcaption {
+  margin-top: 8px;
+  font-size: 13px;
+  color: #606060;
+  text-align: center;
+}
+
+/* Overlay styles if needed for fullscreen content */
 #fullscreenOverlay {
   display: none; /* hidden by default */
-  position: fixed; top: 0; left: 0;
+  position: fixed;
+  top: 0; left: 0;
   width: 100%; height: 100%;
-  background: #fff; /* white background behind back button & iframe */
-  z-index: 9999; display: flex; flex-direction: column;
+  background: rgba(255,255,255,0.95);
+  z-index: 9999;
+  flex-direction: column;
 }
+
 #fullscreenHeader {
-  padding: 10px;
-  background: #fff; /* white background for header */
+  padding: 15px;
+  background: #fff;
+  display: flex;
+  justify-content: flex-end;
+  border-bottom: 1px solid #ccc;
 }
+
 #closeBtn {
   padding: 8px 12px;
-  background: #fff; /* same as banner background */
-  color: #000; /* black text for contrast */
-  border: 1px solid #ccc; /* optional border for clarity */
-  border-radius: 4px;
+  background: #0AC18E;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
   cursor: pointer;
   font-family: 'Orbitron', sans-serif;
+  transition: background 0.3s;
 }
+
+#closeBtn:hover {
+  background: #089d75;
+}
+
 #fullscreenIframe {
-  flex: 1; width: 100%; border: none;
+  flex: 1;
+  width: 100%;
+  border: none;
 }
 </style>
 </head>
@@ -184,12 +272,44 @@ figcaption {
       </ul>
     </div>
     <div class="segment">
-      <a href="#" class="support-link">Ꞩ150k 💚🌿<br> BCH BOOTIES - Token ID<br> 791d3047a42ec2d15f02edfa78ce41cc4c7933b65cfa9391599b8c8714e82d02</a>
-      <a href="#" class="support-link">Ꞩ150k 💚🌿<br> AGORA - Token ID<br> 8c7a98dcd56bd006693cff17d14fb0132dd9299dabf068e44dde51b477c7f27b</a>
-      <p style="font-size:0.9em; margin-top:10px;">*Note: This project is still being built, so some details might change.*</p>
+      <!-- Buttons to copy Token IDs with BCH green theme -->
+      <button class="support-button copy-token" data-token="791d3047a42ec2d15f02edfa78ce41cc4c7933b65cfa9391599b8c8714e82d02">
+        Ꞩ150k 💚🌿<br> BCH BOOTIES - Token ID
+      </button>
+      <button class="support-button copy-token" data-token="8c7a98dcd56bd006693cff17d14fb0132dd9299dabf068e44dde51b477c7f27b">
+        Ꞩ150k 💚🌿<br> AGORA - Token ID
+      </button>
+      <p style="font-size:0.9em; margin-top:10px;">*Click the buttons to copy the Token IDs to clipboard.*</p>
     </div>
   </div>
 </div>
+
+<!-- Rest of your page content -->
+
+<script>
+  // Toggle support content
+  const toggleBtn = document.getElementById('toggleSupportBtn');
+  const supportContent = document.getElementById('support-content');
+
+  toggleBtn.addEventListener('click', () => {
+    supportContent.classList.toggle('expanded');
+    toggleBtn.textContent = supportContent.classList.contains('expanded') ? 'Show Less' : 'Read More';
+  });
+
+  // Copy token IDs to clipboard
+  document.querySelectorAll('.copy-token').forEach(button => {
+    button.addEventListener('click', () => {
+      const token = button.getAttribute('data-token');
+      navigator.clipboard.writeText(token).then(() => {
+        alert('Token ID copied to clipboard!');
+      }, () => {
+        alert('Failed to copy. Please copy manually.');
+      });
+    });
+  });
+</script>
+
+</body>
 
 <h1 id="title">NSFW BCH ﾑ</h1>
 
