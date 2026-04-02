@@ -168,7 +168,6 @@ button:hover {
   justify-content: center;
 }
 
-/* Example grid for app icons */
 .app-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
@@ -253,6 +252,8 @@ figcaption {
     <button id="toggleSupportBtn">Read More</button>
   </div>
   <div id="support-content">
+    <!-- Your support content here -->
+    <!-- (Content omitted for brevity, include your support content as in your original code) -->
     <div class="segment">
       <p>Ꞩ300,000 💚🌿 <strong>May 2nd</strong></p>
       <p><em>Mutual Aid: Every 3 months</em></p>
@@ -271,8 +272,8 @@ figcaption {
         <li>Privacy as standard</li>
       </ul>
     </div>
+    <!-- Token copy buttons -->
     <div class="segment">
-      <!-- Buttons to copy Token IDs with BCH green theme -->
       <button class="support-button copy-token" data-token="791d3047a42ec2d15f02edfa78ce41cc4c7933b65cfa9391599b8c8714e82d02">
         Ꞩ150k 💚🌿<br> BCH BOOTIES - Token ID
       </button>
@@ -286,31 +287,75 @@ figcaption {
 
 <!-- Rest of your page content -->
 
+<h1 id="title">NSFW BCH ﾑ</h1>
+
+<div id="buttons-container">
+  <!-- Removed "Discover" button -->
+  <button id="watchBtn">Watch Free</button>
+</div>
+
+<!-- Fullscreen overlay with white background and back button -->
+<div id="fullscreenOverlay" style="display:none; flex-direction:column;">
+  <div style="padding:10px; background:#fff;">
+    <button id="closeBtn">Back</button>
+  </div>
+  <iframe src="https://gaze.cash/channel.html?chan=AAAAZw" allowfullscreen id="fullscreenIframe"></iframe>
+</div>
+
+<!-- Figures section -->
+<div id="app-section">
+  <!-- Your figures grid code here, omitted for brevity -->
+</div>
+
 <script>
-  // Toggle support content
-  const toggleBtn = document.getElementById('toggleSupportBtn');
-  const supportContent = document.getElementById('support-content');
+  // Wait until DOM is fully loaded
+  document.addEventListener('DOMContentLoaded', () => {
+    // Support toggle
+    const toggleBtn = document.getElementById('toggleSupportBtn');
+    const supportContent = document.getElementById('support-content');
 
-  toggleBtn.addEventListener('click', () => {
-    supportContent.classList.toggle('expanded');
-    toggleBtn.textContent = supportContent.classList.contains('expanded') ? 'Show Less' : 'Read More';
-  });
+    toggleBtn.addEventListener('click', () => {
+      supportContent.classList.toggle('expanded');
+      toggleBtn.textContent = supportContent.classList.contains('expanded') ? 'Show Less' : 'Read More';
+    });
 
-  // Copy token IDs to clipboard
-  document.querySelectorAll('.copy-token').forEach(button => {
-    button.addEventListener('click', () => {
-      const token = button.getAttribute('data-token');
-      navigator.clipboard.writeText(token).then(() => {
-        alert('Token ID copied to clipboard!');
-      }, () => {
-        alert('Failed to copy. Please copy manually.');
+    // Show fullscreen iframe
+    document.getElementById('watchBtn').onclick = () => {
+      document.getElementById('fullscreenOverlay').style.display='flex';
+    };
+
+    // Hide overlay on back button
+    document.getElementById('closeBtn').onclick = () => {
+      document.getElementById('fullscreenOverlay').style.display='none';
+    };
+
+    // Clicking outside iframe closes overlay
+    document.getElementById('fullscreenOverlay').onclick = (e) => {
+      if (e.target === document.getElementById('fullscreenOverlay')) {
+        document.getElementById('fullscreenOverlay').style.display='none';
+      }
+    };
+
+    // Escape key closes overlay
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        document.getElementById('fullscreenOverlay').style.display='none';
+      }
+    });
+
+    // Copy token IDs
+    document.querySelectorAll('.copy-token').forEach(button => {
+      button.addEventListener('click', () => {
+        const token = button.getAttribute('data-token');
+        navigator.clipboard.writeText(token).then(() => {
+          alert('Token ID copied to clipboard!');
+        }, () => {
+          alert('Failed to copy. Please copy manually.');
+        });
       });
     });
   });
 </script>
-
-</body>
-</html>
 
 <h1 id="title">NSFW BCH ﾑ</h1>
 
