@@ -6,11 +6,7 @@
 <title>Bitcoin Cash Support Banner</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet" />
 <style>
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
 
   body {
     font-family: 'Orbitron', Arial, sans-serif;
@@ -40,7 +36,6 @@
     transition: all 0.3s ease;
   }
 
-  /* Header and toggle button styles */
   #support-header {
     display: flex;
     justify-content: space-between;
@@ -72,7 +67,6 @@
     transform: scale(1.05);
   }
 
-  /* Support content styles */
   #support-content {
     max-height: 0;
     overflow: hidden;
@@ -81,11 +75,10 @@
   }
 
   #support-content.expanded {
-    max-height: 1000px; /* enough to show all content */
+    max-height: 1000px;
     padding: 10px 10px;
   }
 
-  /* Content segments with dual-tone background */
   .segment {
     background: rgba(255, 255, 255, 0.1);
     border-radius: 12px;
@@ -94,153 +87,136 @@
     backdrop-filter: blur(5px);
     transition: background 0.3s;
   }
-
-  /* Alternating segment background for visual interest */
   .segment:nth-child(2) {
     background: rgba(255, 255, 255, 0.2);
   }
 
-  /* Support buttons to copy token IDs with BCH green theme */
-.support-button {
-  display: block;
-  width: 100%;
-  margin-top: 10px;
-  padding: 12px;
-  background: linear-gradient(135deg, #0AC18E, #16a085);
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-  font-family: 'Orbitron', sans-serif;
-  font-size: 14px;
-  transition: background 0.3s, transform 0.2s;
-  text-align: center;
-}
+  .support-button {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    padding: 12px;
+    background: linear-gradient(135deg, #0AC18E, #16a085);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 14px;
+    transition: background 0.3s, transform 0.2s;
+    text-align: center;
+  }
+  .support-button:hover {
+    background: linear-gradient(135deg, #089d75, #138d75);
+    transform: translateY(-2px);
+  }
 
-.support-button:hover {
-  background: linear-gradient(135deg, #089d75, #138d75);
-  transform: translateY(-2px);
-}
+  #title {
+    font-size: 2.8em;
+    color: #0AC18E;
+    margin-top: 170px; /* space below banner */
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    text-align: center;
+  }
 
-/* Title styling */
-#title {
-  font-size: 2.8em;
-  color: #0AC18E;
-  margin-top: 170px; /* space below the banner */
-  margin-bottom: 20px;
-  letter-spacing: 2px;
-  text-align: center;
-}
+  #buttons-container {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
 
-/* Buttons container for any other buttons */
-#buttons-container {
-  display: flex;
-  gap: 12px;
-  margin-bottom: 20px;
-}
+  button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #0AC18E, #2ecc71);
+    color: #fff;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transition: background 0.3s, transform 0.2s;
+  }
+  button:hover {
+    background: linear-gradient(135deg, #089d75, #27ae60);
+    transform: scale(1.05);
+  }
 
-/* Standard buttons styling, if needed elsewhere */
-button {
-  padding: 12px 24px;
-  border: none;
-  border-radius: 12px;
-  background: linear-gradient(135deg, #0AC18E, #2ecc71);
-  color: #fff;
-  font-family: 'Orbitron', sans-serif;
-  font-size: 14px;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  transition: background 0.3s, transform 0.2s;
-}
+  #app-section {
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
 
-button:hover {
-  background: linear-gradient(135deg, #089d75, #27ae60);
-  transform: scale(1.05);
-}
+  .app-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 10px;
+    width: 100%;
+  }
 
-/* App section styling (if needed) */
-#app-section {
-  width: 100%;
-  max-width: 1200px;
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-}
+  figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 8px;
+  }
+  figure img {
+    width: 50px;
+    border-radius: 12px;
+    background: #ecf0f1;
+    padding: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+    transition: transform 0.2s;
+  }
+  figure img:hover {
+    transform: scale(1.1);
+  }
+  figcaption {
+    margin-top: 8px;
+    font-size: 13px;
+    color: #606060;
+    text-align: center;
+  }
 
-.app-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-  gap: 10px;
-  width: 100%;
-}
-
-figure {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 8px;
-}
-
-figure img {
-  width: 50px;
-  border-radius: 12px;
-  background: #ecf0f1;
-  padding: 4px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
-  transition: transform 0.2s;
-}
-
-figure img:hover {
-  transform: scale(1.1);
-}
-
-figcaption {
-  margin-top: 8px;
-  font-size: 13px;
-  color: #606060;
-  text-align: center;
-}
-
-/* Overlay styles if needed for fullscreen content */
-#fullscreenOverlay {
-  display: none; /* hidden by default */
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(255,255,255,0.95);
-  z-index: 9999;
-  flex-direction: column;
-}
-
-#fullscreenHeader {
-  padding: 15px;
-  background: #fff;
-  display: flex;
-  justify-content: flex-end;
-  border-bottom: 1px solid #ccc;
-}
-
-#closeBtn {
-  padding: 8px 12px;
-  background: #0AC18E;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-family: 'Orbitron', sans-serif;
-  transition: background 0.3s;
-}
-
-#closeBtn:hover {
-  background: #089d75;
-}
-
-#fullscreenIframe {
-  flex: 1;
-  width: 100%;
-  border: none;
-}
+  #fullscreenOverlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(255,255,255,0.95);
+    z-index: 9999;
+    flex-direction: column;
+  }
+  #fullscreenHeader {
+    padding: 15px;
+    background: #fff;
+    display: flex;
+    justify-content: flex-end;
+    border-bottom: 1px solid #ccc;
+  }
+  #closeBtn {
+    padding: 8px 12px;
+    background: #0AC18E;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'Orbitron', sans-serif;
+    transition: background 0.3s;
+  }
+  #closeBtn:hover {
+    background: #089d75;
+  }
+  #fullscreenIframe {
+    flex: 1;
+    width: 100%;
+    border: none;
+  }
 </style>
 </head>
 <body>
@@ -252,8 +228,7 @@ figcaption {
     <button id="toggleSupportBtn">Read More</button>
   </div>
   <div id="support-content">
-    <!-- Your support content here -->
-    <!-- (Content omitted for brevity, include your support content as in your original code) -->
+    <!-- Your support content here (truncated for brevity) -->
     <div class="segment">
       <p>Ꞩ300,000 💚🌿 <strong>May 2nd</strong></p>
       <p><em>Mutual Aid: Every 3 months</em></p>
@@ -272,7 +247,7 @@ figcaption {
         <li>Privacy as standard</li>
       </ul>
     </div>
-    <!-- Token copy buttons -->
+    <!-- Copy token buttons -->
     <div class="segment">
       <button class="support-button copy-token" data-token="791d3047a42ec2d15f02edfa78ce41cc4c7933b65cfa9391599b8c8714e82d02">
         Ꞩ150k 💚🌿<br> BCH BOOTIES - Token ID
@@ -285,16 +260,13 @@ figcaption {
   </div>
 </div>
 
-<!-- Rest of your page content -->
-
 <h1 id="title">NSFW BCH ﾑ</h1>
 
 <div id="buttons-container">
-  <!-- Removed "Discover" button -->
   <button id="watchBtn">Watch Free</button>
 </div>
 
-<!-- Fullscreen overlay with white background and back button -->
+<!-- Fullscreen overlay -->
 <div id="fullscreenOverlay" style="display:none; flex-direction:column;">
   <div style="padding:10px; background:#fff;">
     <button id="closeBtn">Back</button>
@@ -302,77 +274,6 @@ figcaption {
   <iframe src="https://gaze.cash/channel.html?chan=AAAAZw" allowfullscreen id="fullscreenIframe"></iframe>
 </div>
 
-<!-- Figures section -->
-<div id="app-section">
-  <!-- Your figures grid code here, omitted for brevity -->
-</div>
-
-<script>
-  // Wait until DOM is fully loaded
-  document.addEventListener('DOMContentLoaded', () => {
-    // Support toggle
-    const toggleBtn = document.getElementById('toggleSupportBtn');
-    const supportContent = document.getElementById('support-content');
-
-    toggleBtn.addEventListener('click', () => {
-      supportContent.classList.toggle('expanded');
-      toggleBtn.textContent = supportContent.classList.contains('expanded') ? 'Show Less' : 'Read More';
-    });
-
-    // Show fullscreen iframe
-    document.getElementById('watchBtn').onclick = () => {
-      document.getElementById('fullscreenOverlay').style.display='flex';
-    };
-
-    // Hide overlay on back button
-    document.getElementById('closeBtn').onclick = () => {
-      document.getElementById('fullscreenOverlay').style.display='none';
-    };
-
-    // Clicking outside iframe closes overlay
-    document.getElementById('fullscreenOverlay').onclick = (e) => {
-      if (e.target === document.getElementById('fullscreenOverlay')) {
-        document.getElementById('fullscreenOverlay').style.display='none';
-      }
-    };
-
-    // Escape key closes overlay
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        document.getElementById('fullscreenOverlay').style.display='none';
-      }
-    });
-
-    // Copy token IDs
-    document.querySelectorAll('.copy-token').forEach(button => {
-      button.addEventListener('click', () => {
-        const token = button.getAttribute('data-token');
-        navigator.clipboard.writeText(token).then(() => {
-          alert('Token ID copied to clipboard!');
-        }, () => {
-          alert('Failed to copy. Please copy manually.');
-        });
-      });
-    });
-  });
-</script>
-
-<h1 id="title">NSFW BCH ﾑ</h1>
-
-<div id="buttons-container">
-  <!-- Removed "Discover" button -->
-  <button id="watchBtn">Watch Free</button>
-</div>
-
-<!-- Fullscreen overlay with white background and back button -->
-<div id="fullscreenOverlay" style="display:none; flex-direction:column;">
-  <div style="padding:10px; background:#fff;">
-    <button id="closeBtn">Back</button>
-  </div>
-  <iframe src="https://gaze.cash/channel.html?chan=AAAAZw" allowfullscreen id="fullscreenIframe"></iframe>
-</div>
-
-<!-- All figures from start to BCH PUMP -->
 <!-- Figures grid with all your provided figures, captions beneath each -->
 <div id="app-section">
   <div id="iconsContainer" style="width:100%; padding:10px;">
@@ -1053,42 +954,54 @@ figcaption {
         </a>
         <figcaption>BCH PUMP | Smart Contract</figcaption>
       </figure>
-
-
     </div>
   </div>
 </div>
 
 <script>
-  // Toggle support
-  document.getElementById('toggleSupportBtn').onclick = () => {
-    const supportContent = document.querySelector('#support-content');
-    supportContent.classList.toggle('expanded');
-    document.getElementById('toggleSupportBtn').textContent = supportContent.classList.contains('expanded') ? 'Read Less' : 'Read More';
-  };
+  document.addEventListener('DOMContentLoaded', () => {
+    // Toggle support content
+    document.getElementById('toggleSupportBtn').onclick = () => {
+      const supportContent = document.getElementById('support-content');
+      supportContent.classList.toggle('expanded');
+      document.getElementById('toggleSupportBtn').textContent = supportContent.classList.contains('expanded') ? 'Show Less' : 'Read More';
+    };
 
-  // Show fullscreen iframe on button click
-  document.getElementById('watchBtn').onclick = () => {
-    document.getElementById('fullscreenOverlay').style.display='flex';
-  };
+    // Show overlay
+    document.getElementById('watchBtn').onclick = () => {
+      document.getElementById('fullscreenOverlay').style.display='flex';
+    };
 
-  // Hide fullscreen iframe on back
-  document.getElementById('closeBtn').onclick = () => {
-    document.getElementById('fullscreenOverlay').style.display='none';
-  };
-
-  // Clicking outside iframe closes overlay
-  document.getElementById('fullscreenOverlay').onclick = (e) => {
-    if (e.target === document.getElementById('fullscreenOverlay')) {
+    // Close overlay with button
+    document.getElementById('closeBtn').onclick = () => {
       document.getElementById('fullscreenOverlay').style.display='none';
-    }
-  };
+    };
 
-  // Escape key closes overlay
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      document.getElementById('fullscreenOverlay').style.display='none';
-    }
+    // Clicking outside iframe closes overlay
+    document.getElementById('fullscreenOverlay').onclick = (e) => {
+      if (e.target === document.getElementById('fullscreenOverlay')) {
+        document.getElementById('fullscreenOverlay').style.display='none';
+      }
+    };
+
+    // Escape key closes overlay
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        document.getElementById('fullscreenOverlay').style.display='none';
+      }
+    });
+
+    // Copy token IDs
+    document.querySelectorAll('.copy-token').forEach(btn => {
+      btn.onclick = () => {
+        const token = btn.getAttribute('data-token');
+        navigator.clipboard.writeText(token).then(() => {
+          alert('Token ID copied to clipboard!');
+        }, () => {
+          alert('Failed to copy. Please copy manually.');
+        });
+      };
+    });
   });
 </script>
 </body>
