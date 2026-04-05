@@ -182,41 +182,6 @@
     color: #606060;
     text-align: center;
   }
-
-  #fullscreenOverlay {
-    display: none;
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(255,255,255,0.95);
-    z-index: 9999;
-    flex-direction: column;
-  }
-  #fullscreenHeader {
-    padding: 15px;
-    background: #fff;
-    display: flex;
-    justify-content: flex-end;
-    border-bottom: 1px solid #ccc;
-  }
-  #closeBtn {
-    padding: 8px 12px;
-    background: #0AC18E;
-    color: #fff;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-family: 'Orbitron', sans-serif;
-    transition: background 0.3s;
-  }
-  #closeBtn:hover {
-    background: #089d75;
-  }
-  #fullscreenIframe {
-    flex: 1;
-    width: 100%;
-    border: none;
-  }
 </style>
 </head>
 <body>
@@ -267,13 +232,7 @@
   <button id="watchBtn">Watch Free</button>
 </div>
 
-<!-- Fullscreen overlay -->
-<div id="fullscreenOverlay" style="display:none; flex-direction:column;">
-  <div style="padding:10px; background:#fff;">
-    <button id="closeBtn">Back</button>
-  </div>
-  <iframe src="https://gaze.cash/channel.html?chan=AAAAZw" allowfullscreen id="fullscreenIframe"></iframe>
-</div>
+<!-- Removed iframe overlay and related scripts -->
 
 <!-- Figures grid with all your provided figures, captions beneath each -->
 <div id="app-section">
@@ -968,29 +927,13 @@
       document.getElementById('toggleSupportBtn').textContent = supportContent.classList.contains('expanded') ? 'Show Less' : 'Read More';
     };
 
-    // Show overlay
+    // Open link in new tab instead of overlay
     document.getElementById('watchBtn').onclick = () => {
-      document.getElementById('fullscreenOverlay').style.display='flex';
+      window.open('https://gaze.cash/channel.html?chan=AAAAZw', '_blank');
     };
 
-    // Close overlay with button
-    document.getElementById('closeBtn').onclick = () => {
-      document.getElementById('fullscreenOverlay').style.display='none';
-    };
-
-    // Clicking outside iframe closes overlay
-    document.getElementById('fullscreenOverlay').onclick = (e) => {
-      if (e.target === document.getElementById('fullscreenOverlay')) {
-        document.getElementById('fullscreenOverlay').style.display='none';
-      }
-    };
-
-    // Escape key closes overlay
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        document.getElementById('fullscreenOverlay').style.display='none';
-      }
-    });
+    // Remove iframe overlay functions and close button scripts
+    // (Already removed the overlay HTML and related scripts above)
 
     // Copy token IDs
     document.querySelectorAll('.copy-token').forEach(btn => {
