@@ -165,17 +165,24 @@
     align-items: center;
     margin: 8px;
   }
+
+  /* Updated styles for images to ensure uniform size and aspect ratio */
   figure img {
-    width: 50px;
+    width: 80px; /* fixed width */
+    height: 80px; /* fixed height */
+    object-fit: contain; /* fit image within box without distortion */
+    aspect-ratio: 1 / 1; /* enforce square ratio in supported browsers */
     border-radius: 12px;
     background: #ecf0f1;
     padding: 4px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.15);
     transition: transform 0.2s;
   }
+
   figure img:hover {
     transform: scale(1.1);
   }
+
   figcaption {
     margin-top: 8px;
     font-size: 13px;
