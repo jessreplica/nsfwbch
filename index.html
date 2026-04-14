@@ -219,6 +219,9 @@
         <li>Privacy as standard</li>
       </ul>
     </div>
+    <!-- Removed token buttons entirely -->
+  </div>
+</div>
 
 <h1 id="title">NSFW BCH ﾑ</h1>
 
@@ -908,6 +911,9 @@
         </a>
         <figcaption>BCH PUMP | Smart Contract</figcaption>
       </figure>
+
+      <!-- ... rest of your figures ... -->
+
     </div>
   </div>
 </div>
@@ -926,20 +932,8 @@
       window.open('https://gaze.cash/channel.html?chan=AAAAZw', '_blank');
     };
 
-    // Remove iframe overlay functions and close button scripts
-    // (Already removed the overlay HTML and related scripts above)
-
-    // Copy token IDs
-    document.querySelectorAll('.copy-token').forEach(btn => {
-      btn.onclick = () => {
-        const token = btn.getAttribute('data-token');
-        navigator.clipboard.writeText(token).then(() => {
-          alert('Token ID copied to clipboard!');
-        }, () => {
-          alert('Failed to copy. Please copy manually.');
-        });
-      };
-    });
+    // Copy token IDs (removed as per request)
+    // No token copy buttons now
   });
 </script>
 </body>
