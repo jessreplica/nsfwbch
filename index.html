@@ -19,90 +19,45 @@
     color: #222;
   }
 
-  /* Support banner styles with BCH green theme */
+  /* Hide support banner styles */
   #support-banner {
-    position: fixed;
-    top: 10px;
-    width: 90%;
-    max-width: 900px;
-    background: linear-gradient(135deg, #0AC18E, #2c3e50);
-    border-bottom: 2px solid #089d75;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    padding: 20px;
-    border-radius: 15px;
-    color: #fff;
-    z-index: 9999;
-    transition: all 0.3s ease;
-  }
-
-  #support-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-  }
-
-  #support-header h2 {
-    font-size: 1.6em;
-    font-weight: 600;
-    letter-spacing: 1px;
-  }
-
-  #toggleSupportBtn {
-    background: #fff;
-    color: #0AC18E;
-    border: none;
-    border-radius: 12px;
-    padding: 8px 16px;
-    font-family: 'Orbitron', sans-serif;
-    font-size: 14px;
-    cursor: pointer;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    transition: background 0.3s, transform 0.2s;
-  }
-
-  #toggleSupportBtn:hover {
-    background: #ecf0f1;
-    transform: scale(1.05);
+    display: none;
   }
 
   #support-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s ease, padding 0.3s;
-    padding: 0 10px;
+    display: none;
   }
 
-  #support-content.expanded {
-    max-height: 1000px;
-    padding: 10px 10px;
+  #support-header {
+    display: none;
   }
 
-  .segment {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    padding: 15px;
-    margin-top: 10px;
-    backdrop-filter: blur(5px);
-    transition: background 0.3s;
-  }
-  .segment:nth-child(2) {
-    background: rgba(255, 255, 255, 0.2);
-  }
-
+  /* Title styles */
   #title {
     font-size: 2.8em;
     color: #0AC18E;
-    margin-top: 200px; /* space below banner fixed position */
-    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-bottom: 10px;
     letter-spacing: 2px;
     text-align: center;
   }
 
+  /* Mutual Aid info beneath title */
+  #mutual-aid-info {
+    font-size: 1.2em;
+    color: #0AC18E;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  /* Buttons container styles */
   #buttons-container {
     display: flex;
-    gap: 12px;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
     margin-bottom: 20px;
+    width: 100%;
   }
 
   button {
@@ -116,12 +71,29 @@
     cursor: pointer;
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     transition: background 0.3s, transform 0.2s;
+    width: 200px;
   }
   button:hover {
     background: linear-gradient(135deg, #089d75, #27ae60);
     transform: scale(1.05);
   }
 
+  /* Search bar styles */
+  #searchInput {
+    padding: 10px 15px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 14px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    width: 220px;
+    outline: none;
+    transition: box-shadow 0.3s;
+  }
+  #searchInput:focus {
+    box-shadow: 0 0 8px rgba(10, 193, 142, 0.6);
+  }
+
+  /* Main app section styles */
   #app-section {
     width: 100%;
     max-width: 1400px;
@@ -135,7 +107,7 @@
     gap: 30px;
   }
 
-  /* Label styling - vertical, subtle */
+  /* Vertical label styles */
   .grid-label {
     writing-mode: vertical-rl;
     text-orientation: mixed;
@@ -147,24 +119,26 @@
     letter-spacing: 2px;
   }
 
-  /* Grid wrapper to allow scrolling if needed */
+  /* Grid wrapper styles */
   .figures-grid-wrapper {
     flex: 1;
     overflow-x: auto;
   }
 
-  /* Main figures grid */
+  /* Main figures grid styles */
   .figures-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     gap: 16px;
   }
 
+  /* Figure styles */
   figure {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 8px 0;
+    transition: transform 0.2s, box-shadow 0.2s;
   }
 
   figure img {
@@ -176,7 +150,6 @@
     background: #ecf0f1;
     padding: 4px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.15);
-    transition: transform 0.2s, box-shadow 0.2s;
   }
 
   figure img:hover {
@@ -194,24 +167,19 @@
 </head>
 <body>
 
-<!-- Support banner -->
-<div id="support-banner">
-  <div id="support-header">
-    <h2>Collective Support</h2>
-    <button id="toggleSupportBtn">Read More</button>
-  </div>
-  <div id="support-content">
-    <div class="segment">
-      <p><em>Mutual Aid - May 2nd</em></p>
-      <p>Ꞩ300,000 sats</p>
-    </div>
-  </div>
-</div>
+<!-- Removed support banner -->
 
 <h1 id="title">NSFW BCH</h1>
-<blockquote class="bluesky-embed" data-bluesky-uri="at://did:plc:aeutxchhxokjdjvxnzllqu2u/app.bsky.feed.post/3matuzpietn2e" data-bluesky-cid="bafyreih6qepw5wfacsgr33lutw6loulbrdct7wymuinimtylfmouoota3a" data-bluesky-embed-color-mode="light"><p lang=""><br><br><a href="https://bsky.app/profile/did:plc:aeutxchhxokjdjvxnzllqu2u/post/3matuzpietn2e?ref_src=embed">[image or embed]</a></p>&mdash; NSFW BCH 💚 (<a href="https://bsky.app/profile/did:plc:aeutxchhxokjdjvxnzllqu2u?ref_src=embed">@nsfwbch.bsky.social</a>) <a href="https://bsky.app/profile/did:plc:aeutxchhxokjdjvxnzllqu2u/post/3matuzpietn2e?ref_src=embed">December 25, 2025 at 3:00 PM</a></blockquote><script async src="https://embed.bsky.app/static/embed.js" charset="utf-8"></script>
+<div id="mutual-aid-info">Mutual Aid - May 2nd</div>
+
+<!-- Embedded social media post -->
+<blockquote class="bluesky-embed" data-bluesky-uri="at://did:plc:aeutxchhxokjdjvxnzllqu2u/app.bsky.feed.post/3matuzpietn2e" data-bluesky-cid="bafyreih6qepw5wfacsgr33lutw6loulbrdct7wymuinimtylfmouoota3a" data-bluesky-embed-color-mode="light"><p lang=""><br><br><a href="https://bsky.app/profile/did:plc:aeutxchhxokjdjvxnzllqu2u/post/3matuzpietn2e?ref_src=embed">[image or embed]</a></p>&mdash; NSFW BCH 💚 (<a href="https://bsky.app/profile/did:plc:aeutxchhxokjdjvxnzllqu2u?ref_src=embed">@nsfwbch.bsky.social</a>) <a href="https://bsky.app/profile/did:plc:aeutxchhxokjdjvxnzllqu2u/post/3matuzpietn2e?ref_src=embed">December 25, 2025 at 3:00 PM</a></blockquote>
+<script async src="https://embed.bsky.app/static/embed.js" charset="utf-8"></script>
+
 <div id="buttons-container">
   <button id="watchBtn">Watch Free</button>
+  <!-- Search bar -->
+  <input type="text" id="searchInput" placeholder="Discover Bitcoin Cash" />
 </div>
 
 <!-- Label + grid container -->
@@ -219,423 +187,493 @@
   <div class="labels-grid-container">
     <div class="grid-label">RECOMMENDED</div>
     <div class="figures-grid-wrapper">
-      <div class="figures-grid">
-        <!-- ALL FIGURES GO HERE -->
+      <div class="figures-grid" id="figuresGrid">
+        <!-- ALL FIGURES GO HERE, including all your figures -->
         <!-- START OF ALL FIGURES -->
+
         <figure>
           <a href="https://ariavpn.net/ref/0ONCc" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/153cddecdae606c151cb62dad9ef2a0f14cd559f/bch%20agora/aria.svg" alt="AriaVPN" />
           </a>
           <figcaption>AriaVPN</figcaption>
         </figure>
+
         <figure>
           <a href="https://app.cauldron.quest/swap/8c7a98dcd56bd006693cff17d14fb0132dd9299dabf068e44dde51b477c7f27b" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/agora%20logo.png" alt="AGORA" />
           </a>
           <figcaption>AGORA <p style="color: #0AC18E;">Ꞩ100k</p></figcaption>
         </figure>
+
         <figure>
           <a href="https://t.me/addstickers/bchhoroscopepack1" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/bitcoincash.svg" alt="BCH Horoscope Sticker Pack" />
           </a>
           <figcaption>BCH Horoscope Sticker Pack</figcaption>
         </figure>
+
         <figure>
           <a href="https://bmap.app/" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/bmap.png" alt="BMap | Merchant Map" />
           </a>
           <figcaption>BMap | Merchant Map</figcaption>
         </figure>
+
         <figure>
           <a href="https://tapswap.cash/trade/f54ce0297a4017cc922aacde5f7abe7a8397a1058b879f5eb9e2a643d4ec2301" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/bch-guru.png" alt="BCH Guru" />
           </a>
           <figcaption>BCH Guru <p style="color: #0AC18E;">Ꞩ100k</p></figcaption>
         </figure>
+
         <figure>
           <a href="https://tapswap.cash/trade/791d3047a42ec2d15f02edfa78ce41cc4c7933b65cfa9391599b8c8714e82d02" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/bchbooties.png" alt="BCH Booties" />
           </a>
           <figcaption>BCH Booties <p style="color: #0AC18E;">Ꞩ100k</p></figcaption>
         </figure>
+
         <figure>
           <a href="https://eatbch.org/" target="_blank" rel="noopener noreferrer">
             <img src="https://eatbch.org/_assets/svg/logo.svg?1.0.0" alt="eatBCH" />
           </a>
           <figcaption>eatBCH</figcaption>
         </figure>
+
         <figure>
           <a href="https://tbch.googol.cash/" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/testnetfaucet.webp" alt="BCH Testnet Faucet" />
           </a>
           <figcaption>BCH Testnet Faucet</figcaption>
         </figure>
+
         <figure>
           <a href="https://explorer.bitcoinunlimited.info/" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/bitcoincash.svg" alt="BU Explorer" />
           </a>
           <figcaption>BU Explorer</figcaption>
         </figure>
+
         <figure>
           <a href="https://cashflow.dev/graph" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/bitcoincash.svg" alt="Cashflow" />
           </a>
           <figcaption>Cashflow</figcaption>
         </figure>
+
         <figure>
           <a href="https://explorer.melroy.org/" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/melroy.webp" alt="Melroy Explorer" />
           </a>
           <figcaption>Melroy Explorer</figcaption>
         </figure>
+
         <figure>
           <a href="https://3xpl.com/bitcoin-cash" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/3xpl.svg" alt="3xpl Explorer" />
           </a>
           <figcaption>3xpl Explorer</figcaption>
         </figure>
+
         <figure>
           <a href="https://www.blockchain.com/explorer/assets/bch" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/blockchaincom.svg" alt="Blockchain.com Explorer" />
           </a>
           <figcaption>Blockchain.com Explorer</figcaption>
         </figure>
+
         <figure>
           <a href="https://simpleledger.info/" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/slp.svg" alt="SLP Token Explorer" />
           </a>
           <figcaption>SLP Token Explorer</figcaption>
         </figure>
+
         <figure>
           <a href="https://blockchair.com/bitcoin-cash" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/blockchair.svg" alt="Blockchair Explorer" />
           </a>
           <figcaption>Blockchair Explorer</figcaption>
         </figure>
+
         <figure>
           <a href="https://tokenexplorer.cash/" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/bitcoincash.svg" alt="BCMR Token Explorer" />
           </a>
           <figcaption>BCMR Token Explorer</figcaption>
         </figure>
+
         <figure>
           <a href="https://explorer.salemkode.com/" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/bitcoincash.svg" alt="Salem Kode Explorer" />
           </a>
           <figcaption>Salem Kode Explorer</figcaption>
         </figure>
+
         <figure>
           <a href="https://developers.cash/" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/bitcoincash.svg" alt="Developers.Cash" />
           </a>
           <figcaption>Developers.Cash</figcaption>
         </figure>
+
         <figure>
           <a href="https://1209k.com/bitcoin-eye/ele.php?chain=bch" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/1209k.webp" alt="Electrum Server Status" />
           </a>
           <figcaption>Electrum Server Status</figcaption>
         </figure>
+
         <figure>
           <a href="https://monsterbitar.se/~jonathan/energy" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/energy.svg" alt="Bitcoin Energy Stats" />
           </a>
           <figcaption>Bitcoin Energy Stats</figcaption>
         </figure>
+
         <figure>
           <a href="https://cash.coin.dance/" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/coindance.webp" alt="Coin Dance" />
           </a>
           <figcaption>Coin Dance</figcaption>
         </figure>
+
         <figure>
           <a href="https://mempool.jhoenicke.de/#BCH,24h,weight" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/johoe.svg" alt="Johoe`s Bitcoin Mempool Stats" />
           </a>
           <figcaption>Johoe`s Bitcoin Mempool Stats</figcaption>
         </figure>
+
         <figure>
           <a href="https://bitcoinfees.cash/" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/bitcoinfees.png" alt="Bitcoin Fees" />
           </a>
           <figcaption>Bitcoin Fees</figcaption>
         </figure>
+
         <figure>
           <a href="https://fork.lol/" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/forklol.png" alt="Fork.lol" />
           </a>
           <figcaption>Fork.lol</figcaption>
         </figure>
+
         <figure>
           <a href="https://bitinfocharts.com/bitcoin%20cash/" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/opreturnscanner.svg" alt="BitInfoCharts" />
           </a>
           <figcaption>BitInfoCharts</figcaption>
         </figure>
+
         <figure>
           <a href="https://txcity.io/v/bch-btc" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/txcity.svg" alt="TxCity.io" />
           </a>
           <figcaption>TxCity.io</figcaption>
         </figure>
+
         <figure>
           <a href="https://buyhodlsell.com/tx-watch" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/bhs.svg" alt="Buy Hodl Sell" />
           </a>
           <figcaption>Buy Hodl Sell</figcaption>
         </figure>
+
         <figure>
           <a href="https://github.com/cculianu/asicseer-pool" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/ASICseer.png" alt="ASICseer Pool" />
           </a>
           <figcaption>ASICseer Pool</figcaption>
         </figure>
+
         <figure>
           <a href="https://afifthofgaming.com/" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/afog.webp" alt="A Fifth of Gaming" />
           </a>
           <figcaption>A Fifth of Gaming</figcaption>
         </figure>
+
         <figure>
           <a href="https://bitbucket.org/o-studio/spedn/src/develop/" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/speedn.svg" alt="Speedn" />
           </a>
           <figcaption>SPEEDN</figcaption>
         </figure>
+
         <figure>
           <a href="https://gitlab.com/electrum-cash" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/electrum-cash.svg" alt="Electrum-Cash" />
           </a>
           <figcaption>Electrum-Cash</figcaption>
         </figure>
+
         <figure>
           <a href="https://gitlab.com/riftenlabs/moria/oracle-contract" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/d3lphi-oracle.webp" alt="d3lphi-oracle" />
           </a>
           <figcaption>d3lphi-oracle</figcaption>
         </figure>
+
         <figure>
           <a href="https://purelypeer.cash/" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/PurelyPeer.svg" alt="PurelyPeer" />
           </a>
           <figcaption>PurelyPeer</figcaption>
         </figure>
+
         <figure>
           <a href="https://oracles.cash/" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/oracles-light.svg" alt="Oracles.Cash" />
           </a>
           <figcaption>Oracles.Cash</figcaption>
         </figure>
+
         <figure>
           <a href="https://www.bitpay.com/directory/nonprofits" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/bitpay.svg" alt="Bitpay Charity Directory" />
           </a>
           <figcaption>Bitpay Charity Directory</figcaption>
         </figure>
+
         <figure>
           <a href="https://jogs.one/" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/heads/main/bch%20agora/JOGS.webp" alt="The Journal of Global Surgery (ONE)" />
           </a>
           <figcaption>The Journal of Global Surgery (ONE)</figcaption>
         </figure>
+
         <figure>
           <a href="https://csc.org/donors/" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/childrenssurgicalcentre.webp" alt="Children's Surgical Centre" />
           </a>
           <figcaption>Children's Surgical Centre</figcaption>
         </figure>
+
         <figure>
           <a href="https://bcashgpt.com/" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/nanogpt.svg" alt="BCashGPT" />
           </a>
           <figcaption>BCashGPT</figcaption>
         </figure>
+
         <figure>
           <a href="https://haveibeenpwned.com/Donate" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/pwned.png" alt="haveibeenpwned" />
           </a>
           <figcaption>haveibeenpwned</figcaption>
         </figure>
+
         <figure>
           <a href="https://github.com/jprupp/haskoin-core" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/haskoin.png" alt="Haskoin Core" />
           </a>
           <figcaption>Haskoin Core</figcaption>
         </figure>
+
         <figure>
           <a href="https://github.com/jprupp/haskoin-core" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/haskoin.png" alt="Haskoin Store" />
           </a>
           <figcaption>Haskoin Store</figcaption>
         </figure>
+
         <figure>
           <a href="https://github.com/jprupp/haskoin-node" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/haskoin.png" alt="Haskoin Node" />
           </a>
           <figcaption>Haskoin Node</figcaption>
         </figure>
+
         <figure>
           <a href="https://github.com/gcash/bchutil" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/bitcoincash.svg" alt="bchutil" />
           </a>
           <figcaption>bchutil</figcaption>
         </figure>
+
         <figure>
           <a href="https://developers-cash.github.io/cash-pay-server-js/" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/cashpayserver.svg" alt="CashPayServer" />
           </a>
           <figcaption>CashPayServer</figcaption>
         </figure>
+
         <figure>
           <a href="https://mainnet.cash/" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/mainnet.png" alt="mainnet" />
           </a>
           <figcaption>mainnet</figcaption>
         </figure>
+
         <figure>
           <a href="https://github.com/mainnet-pat/wc2-bch-bcr" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/walletconect.svg" alt="WalletConnect v2" />
           </a>
           <figcaption>WalletConnect v2</figcaption>
         </figure>
+
         <figure>
           <a href="https://otr.cash/" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/OTR.png" alt="OpenTokenRegistry" />
           </a>
           <figcaption>OpenTokenRegistry</figcaption>
         </figure>
+
         <figure>
           <a href="https://github.com/mainnet-pat/wc2-bch-bcr" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/CashID.png" alt="CashID" />
           </a>
           <figcaption>CashID</figcaption>
         </figure>
+
         <figure>
           <a href="https://gitlab.com/developers.cash/cashconnect-temp" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/cashconnect.svg" alt="CashConnect" />
           </a>
           <figcaption>CashConnect</figcaption>
         </figure>
+
         <figure>
           <a href="https://github.com/simpleledger/slpjs" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/slp.svg" alt="SLPJS" />
           </a>
           <figcaption>SLPJS</figcaption>
         </figure>
+
         <figure>
           <a href="https://pybitcash.github.io/bitcash/" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/bitcash.svg" alt="BitCash" />
           </a>
           <figcaption>BitCash</figcaption>
         </figure>
+
         <figure>
           <a href="https://cashtokens.org/" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/CashTokens.svg" alt="CashTokens" />
           </a>
           <figcaption>CashTokens</figcaption>
         </figure>
+
         <figure>
           <a href="https://simpleledger.cash/" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/slp.svg" alt="Simple Ledger Protocol" />
           </a>
           <figcaption>Simple Ledger Protocol</figcaption>
         </figure>
+
         <figure>
           <a href="https://github.com/mazetoken/airdrop-tool?tab=readme-ov-file" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/CashTokens.svg" alt="Airdrop Tool" />
           </a>
           <figcaption>Airdrop Tool</figcaption>
         </figure>
+
         <figure>
           <a href="https://opreturn-scanner.netlify.app/" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/opreturnscanner.svg" alt="OP_RETURN Scanner" />
           </a>
           <figcaption>OP_RETURN Scanner</figcaption>
         </figure>
+
         <figure>
           <a href="https://psffpp.com/" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/psf.webp" alt="File Pinning Protocol" />
           </a>
           <figcaption>File Pinning Protocol</figcaption>
         </figure>
+
         <figure>
           <a href="https://github.com/mr-zwets/airdrop-tool" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/CashTokens.svg" alt="Airdrop Tool" />
           </a>
           <figcaption>Airdrop Tool</figcaption>
         </figure>
+
         <figure>
           <a href="https://cashaddress.org/" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/cashaddress.png" alt="Cash Address Paper Wallet" />
           </a>
           <figcaption>Cash Address Paper Wallet</figcaption>
         </figure>
+
         <figure>
           <a href="https://cashaccount.info/" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/cashaccount.svg" alt="Cash Accounts" />
           </a>
           <figcaption>Cash Accounts</figcaption>
         </figure>
+
         <figure>
           <a href="https://www.livecoinwatch.com/widgets" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/livecoinwatch.svg" alt="Price Widgets" />
           </a>
           <figcaption>Price Widgets</figcaption>
         </figure>
+
         <figure>
           <a href="https://paperwallet.bitcoin.com/" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/bcom-logo.svg" alt="Bitcoin.com Paper Wallet Generator" />
           </a>
           <figcaption>Bitcoin.com Paper Wallet Generator</figcaption>
         </figure>
+
         <figure>
           <a href="https://www.bitcoin.com/tools/verify-message/" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/bcom-logo.svg" alt="Verify Message" />
           </a>
           <figcaption>Verify Message</figcaption>
         </figure>
+
         <figure>
           <a href="https://www.bitcoin.com/tools/cash-address-converter/" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/bcom-logo.svg" alt="Cash Address Converter" />
           </a>
           <figcaption>Cash Address Converter</figcaption>
         </figure>
+
         <figure>
           <a href="https://tipb.ch/create" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/bitcoincash.svg" alt="tipb.ch" />
           </a>
           <figcaption>tipb.ch</figcaption>
         </figure>
+
         <figure>
           <a href="https://landing.cointr.ee/" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/cointree.svg" alt="Coin Tree" />
           </a>
           <figcaption>Coin Tree</figcaption>
         </figure>
+
         <figure>
           <a href="https://opensourcemetalwallet.com/" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/psf.webp" alt="Open Source Metal Wallet" />
           </a>
           <figcaption>Open Source Metal Wallet</figcaption>
         </figure>
+
         <figure>
           <a href="https://notary.bitcoin.com/" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/bcom-logo.svg" alt="Bitcoin Cash Notary" />
           </a>
           <figcaption>Bitcoin Cash Notary</figcaption>
         </figure>
+
         <figure>
           <a href="https://tags.infra.cash/" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/cashtags.svg" alt="CashTags" />
           </a>
           <figcaption>CashTags</figcaption>
         </figure>
+
         <figure>
           <a href="https://stamps.cash/#/" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/stamps.svg" alt="CashStamps" />
           </a>
           <figcaption>CashStamps</figcaption>
         </figure>
+
         <figure>
           <a href="https://bmap.app/" target="_blank" rel="noopener noreferrer">
             <img src="https://raw.githubusercontent.com/jessreplica/bchprojects/refs/heads/main/bch%20agora/bmap.png" alt="BMap" />
@@ -827,6 +865,7 @@
           </a>
           <figcaption>BCH PUMP | Smart Contract</figcaption>
         </figure>
+        <!-- END OF ALL FIGURES -->
       </div>
     </div>
   </div>
@@ -834,16 +873,25 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    // Toggle support content
-    document.getElementById('toggleSupportBtn').onclick = () => {
-      const supportContent = document.getElementById('support-content');
-      supportContent.classList.toggle('expanded');
-      document.getElementById('toggleSupportBtn').textContent = supportContent.classList.contains('expanded') ? 'Show Less' : 'Read More';
-    };
     // Watch button
     document.getElementById('watchBtn').onclick = () => {
       window.open('https://gaze.cash/channel.html?chan=AAAAZw', '_blank');
     };
+    // Search filter
+    const searchInput = document.getElementById('searchInput');
+    const figures = document.querySelectorAll('#figuresGrid figure');
+
+    searchInput.addEventListener('input', () => {
+      const query = searchInput.value.toLowerCase();
+      figures.forEach(figure => {
+        const caption = figure.querySelector('figcaption').textContent.toLowerCase();
+        if (caption.includes(query)) {
+          figure.style.display = '';
+        } else {
+          figure.style.display = 'none';
+        }
+      });
+    });
   });
 </script>
 </body>
